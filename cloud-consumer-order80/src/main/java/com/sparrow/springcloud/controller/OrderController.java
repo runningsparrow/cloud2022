@@ -9,6 +9,7 @@ import org.springframework.cloud.client.discovery.DiscoveryClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -24,9 +25,9 @@ import java.util.List;
 @Slf4j
 public class OrderController
 {
-    //public static final String PAYMENT_URL = "http://localhost:8001";
+    public static final String PAYMENT_URL = "http://localhost:8001";
 
-    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
+//    public static final String PAYMENT_URL = "http://CLOUD-PAYMENT-SERVICE";
 
     @Resource
     private RestTemplate restTemplate;
@@ -35,7 +36,7 @@ public class OrderController
     private LoadBalancer loadBalancer;
     @Resource
     private DiscoveryClient discoveryClient;
-
+    //访问参考： http://127.0.0.1/consumer/payment/create?serial=sparrow5
     @GetMapping("/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment)
     {
@@ -60,29 +61,29 @@ public class OrderController
         }
     }
 
-    @GetMapping(value = "/consumer/payment/lb")
-    public String getPaymentLB()
-    {
-        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
-
-        if(instances == null || instances.size() <= 0)
-        {
-            return null;
-        }
-
-        ServiceInstance serviceInstance = loadBalancer.instances(instances);
-        URI uri = serviceInstance.getUri();
-
-        return restTemplate.getForObject(uri+"/payment/lb",String.class);
-
-    }
-
-    // ====================> zipkin+sleuth
-    @GetMapping("/consumer/payment/zipkin")
-    public String paymentZipkin()
-    {
-        String result = restTemplate.getForObject("http://localhost:8001"+"/payment/zipkin/", String.class);
-        return result;
-    }
+//    @GetMapping(value = "/consumer/payment/lb")
+//    public String getPaymentLB()
+//    {
+//        List<ServiceInstance> instances = discoveryClient.getInstances("CLOUD-PAYMENT-SERVICE");
+//
+//        if(instances == null || instances.size() <= 0)
+//        {
+//            return null;
+//        }
+//
+//        ServiceInstance serviceInstance = loadBalancer.instances(instances);
+//        URI uri = serviceInstance.getUri();
+//
+//        return restTemplate.getForObject(uri+"/payment/lb",String.class);
+//
+//    }
+//
+//    // ====================> zipkin+sleuth
+//    @GetMapping("/consumer/payment/zipkin")
+//    public String paymentZipkin()
+//    {
+//        String result = restTemplate.getForObject("http://localhost:8001"+"/payment/zipkin/", String.class);
+//        return result;
+//    }
 }
 
