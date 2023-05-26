@@ -3,15 +3,16 @@ package com.sparrow.springcloud;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
-import org.springframework.cloud.netflix.eureka.EnableEurekaClient;
 
-
+/**
+ * @auther sparrow
+ * @create 2023-05-26 16:05
+ */
 @SpringBootApplication
-@EnableEurekaClient
 @EnableDiscoveryClient
-public class PaymentMain8002
+public class PaymentMain8006
 {
     public static void main(String[] args) {
-        SpringApplication.run(PaymentMain8002.class, args);
+            SpringApplication.run(PaymentMain8006.class, args);
     }
 }
