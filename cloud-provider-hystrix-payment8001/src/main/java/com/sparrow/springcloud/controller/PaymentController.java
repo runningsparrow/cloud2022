@@ -23,6 +23,7 @@ public class PaymentController
     @Value("${server.port}")
     private String serverPort;
 
+    //访问 http://127.0.0.1:8001/payment/hystrix/ok/1
     @GetMapping("/payment/hystrix/ok/{id}")
     public String paymentInfo_OK(@PathVariable("id") Integer id)
     {
@@ -31,6 +32,7 @@ public class PaymentController
         return result;
     }
 
+    //访问 http://127.0.0.1:8001/payment/hystrix/timeout/1
     @GetMapping("/payment/hystrix/timeout/{id}")
     public String paymentInfo_TimeOut(@PathVariable("id") Integer id)
     {

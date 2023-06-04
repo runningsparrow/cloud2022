@@ -6,6 +6,7 @@ import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
 import org.springframework.stereotype.Service;
 import org.springframework.web.bind.annotation.PathVariable;
 
+import java.util.Date;
 import java.util.UUID;
 import java.util.concurrent.TimeUnit;
 
@@ -32,8 +33,15 @@ public class PaymentService
     public String paymentInfo_TimeOut(Integer id)
     {
         //int age = 10/0;
+        //获取开始时间
+        Date datestart = new Date();
         try { TimeUnit.MILLISECONDS.sleep(3000); } catch (InterruptedException e) { e.printStackTrace(); }
-        return "线程池:  "+Thread.currentThread().getName()+" id:  "+id+"\t"+"O(∩_∩)O哈哈~"+"  耗时(秒): ";
+        //获取结束时间
+        Date datestop = new Date();
+        //计算时间差值
+        long diff = datestart.getTime() - datestop.getTime();
+        //返回值把毫秒转成秒
+        return "线程池:  "+Thread.currentThread().getName()+" id:  "+id+"\t"+"O(∩_∩)O哈哈~"+"  耗时(秒): " + TimeUnit.MILLISECONDS.toSeconds(diff) ;
     }
     public String paymentInfo_TimeOutHandler(Integer id)
     {
