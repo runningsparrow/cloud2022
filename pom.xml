@@ -32,6 +32,8 @@
       <module>cloudalibaba-config-nacos-client3377</module>
       <module>cloudalibaba-sentinel-service8401</module>
       <module>cloudalibaba-sidecar-service8901</module>
+      <module>cloudalibaba-sidecar-service8902</module>
+      <module>cloud-alibaba-gateway9528</module>
   </modules>
 
 

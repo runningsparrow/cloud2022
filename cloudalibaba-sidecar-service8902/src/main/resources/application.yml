@@ -1,9 +1,9 @@
 server:
-  port: 8901
+  port: 8902
 
 spring:
   application:
-    name: sidercar-service-flask
+    name: sidercar-service-flask2
   cloud:
     nacos:
       discovery:
@@ -19,10 +19,5 @@ management:
 # 配置异构服务
 sidecar:
   ip: localhost
-  port: 5000
-  healthUri: http://localhost:5000/health
-
-
-#消费者将要去访问的微服务名称(注册成功进nacos的微服务提供者)
-service-url:
-  nacos-user-service: http://sidercar-service-flask2
+  port: 5001
+  healthUri: http://localhost:5001/health

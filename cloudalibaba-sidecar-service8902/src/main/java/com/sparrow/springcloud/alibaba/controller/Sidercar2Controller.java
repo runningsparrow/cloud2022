@@ -1,9 +1,7 @@
 package com.sparrow.springcloud.alibaba.controller;
 
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
 
@@ -15,7 +13,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @Slf4j
-public class SidercarController
+public class Sidercar2Controller
 {
     @Resource
     private RestTemplate restTemplate;
@@ -23,30 +21,22 @@ public class SidercarController
 //    @Value("${server.port}")
 //    private String serverPort;
 
-//    @Value("${service-url.nacos-user-service}")
-//    private String serverURL;
-
     @GetMapping(value = "/sidercar/flask/health")
     public String getSiderhealth()
     {
-        return restTemplate.getForObject("http://localhost:5000/health", String.class);
+        return restTemplate.getForObject("http://localhost:5001/health", String.class);
     }
 
 
     @GetMapping(value = "/sidercar/flask/home")
     public String getflaskhome()
     {
-        return restTemplate.getForObject("http://localhost:5000/", String.class);
+        return restTemplate.getForObject("http://localhost:5001/", String.class);
     }
-
 
     @GetMapping(value = "/sidercar/flask/home/test1")
     public String getflasktest1()
     {
-        return restTemplate.getForObject("http://localhost:5000/test1", String.class);
+        return restTemplate.getForObject("http://localhost:5001/test1", String.class);
     }
-//    public String getflasktest1()
-//    {
-//        return restTemplate.getForObject(serverURL+ "/test1", String.class);
-//    }
 }
