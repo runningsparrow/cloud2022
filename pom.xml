@@ -34,6 +34,8 @@
       <module>cloudalibaba-sidecar-service8901</module>
       <module>cloudalibaba-sidecar-service8902</module>
       <module>cloud-alibaba-gateway9528</module>
+      <module>cloud-gateway-gateway9527</module>
+      <module>cloudalibaba-sidecar-service8903</module>
   </modules>
 
 

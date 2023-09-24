@@ -1,13 +1,13 @@
 server:
-  port: 8902
+  port: 8903
 
 spring:
   application:
-    name: sidercar-service-flask
+    name: sidercar-service2-flask
   cloud:
     nacos:
       discovery:
-#        server-addr: localhost:8849 #配置Nacos地址
+        #        server-addr: localhost:8849 #配置Nacos地址
         server-addr: 1.116.186.198:8848 #配置Nacos地址
 
 management:
@@ -19,5 +19,5 @@ management:
 # 配置异构服务
 sidecar:
   ip: localhost
-  port: 5001
-  healthUri: http://localhost:5001/health
+  port: 5002
+  healthUri: http://localhost:5002/health

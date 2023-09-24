@@ -13,7 +13,7 @@ import javax.annotation.Resource;
  */
 @RestController
 @Slf4j
-public class SidercarController
+public class Sidercar2Controller
 {
     @Resource
     private RestTemplate restTemplate;
@@ -21,36 +21,22 @@ public class SidercarController
 //    @Value("${server.port}")
 //    private String serverPort;
 
-//    @Value("${service-url.nacos-user-service}")
-//    private String serverURL;
-
     @GetMapping(value = "/sidercar/flask/health")
     public String getSiderhealth()
     {
-        return restTemplate.getForObject("http://localhost:5000/health", String.class);
+        return restTemplate.getForObject("http://localhost:5002/health", String.class);
     }
 
 
     @GetMapping(value = "/sidercar/flask/home")
     public String getflaskhome()
     {
-        return restTemplate.getForObject("http://localhost:5000/", String.class);
+        return restTemplate.getForObject("http://localhost:5002/", String.class);
     }
-
-//    @GetMapping(value = "/")
-//    public String getflaskhome()
-//    {
-//        return restTemplate.getForObject("http://localhost:5000/", String.class);
-//    }
-
 
     @GetMapping(value = "/sidercar/flask/home/test1")
     public String getflasktest1()
     {
-        return restTemplate.getForObject("http://localhost:5000/test1", String.class);
+        return restTemplate.getForObject("http://localhost:5002/test1", String.class);
     }
-//    public String getflasktest1()
-//    {
-//        return restTemplate.getForObject(serverURL+ "/test1", String.class);
-//    }
 }
